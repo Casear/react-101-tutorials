@@ -18,7 +18,9 @@ module.exports = {
     new webpack.NoErrorsPlugin()
   ],
   module: {
-    loaders: [{
+    loaders: [
+    { test: /\.css$/, loader: "style-loader!css-loader" },
+    {
       test: /\.jsx?/,
       loaders: ['babel'],
       include: path.join(__dirname, 'src')
