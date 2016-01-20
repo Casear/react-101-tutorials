@@ -12,6 +12,12 @@ module.exports = {
     publicPath: '/static/'
   },
   plugins: [
+    new webpack.ProvidePlugin({
+      $: 'jquery',
+      jQuery: 'jquery',
+      'window.jQuery': 'jquery',
+      'root.jQuery': 'jquery'
+    }),
     new webpack.optimize.OccurenceOrderPlugin(),
     new webpack.DefinePlugin({
       'process.env': {
@@ -31,6 +37,12 @@ module.exports = {
   module: {
     loaders: [
     { test: /\.css$/, loader:ExtractTextPlugin.extract( "style-loader","css-loader?sourceMap") },
+    { test: /\.png$/, loader: "url-loader?limit=100000" },
+    { test: /\.jpg$/, loader: "file-loader" },
+    {
+      test: /\.(eot|woff|woff2|ttf|svg)$/,
+      loader: 'url-loader?limit=30000'
+    },
     {
       test: /\.jsx$/,
       loaders: ['babel'],

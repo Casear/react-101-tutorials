@@ -15,7 +15,10 @@ module.exports = {
   },
   plugins: [
     new webpack.ProvidePlugin({
-      'jQuery': 'jquery'
+      $: 'jquery',
+      jQuery: 'jquery',
+      'window.jQuery': 'jquery',
+      'root.jQuery': 'jquery'
     }),
     new webpack.HotModuleReplacementPlugin(),
     new webpack.NoErrorsPlugin()
@@ -26,6 +29,12 @@ module.exports = {
   module: {
     loaders: [
     { test: /\.css$/, loader: "style-loader!css-loader?sourceMap" },
+    { test: /\.png$/, loader: "url-loader?limit=100000" },
+    { test: /\.jpg$/, loader: "file-loader" },
+    {
+      test: /\.(eot|woff|woff2|ttf|svg)$/,
+      loader: 'url-loader?limit=30000'
+    },
     {
       test: /\.jsx?/,
       loaders: ['babel'],
