@@ -4,6 +4,12 @@
   "description": "",
   "author": "",
   "license": "ISC",
+  "scripts": {
+    "clean": "rimraf dist",
+    "build:webpack": "cross-env NODE_ENV=production webpack --config webpack.config.prod.js",
+    "build": "npm run clean && npm run build:webpack",
+    "start": "node server.js"
+  },
   "devDependencies": {
     "babel-core": "^6.4.0",
     "babel-eslint": "^4.1.6",
