@@ -1,10 +1,10 @@
 var path = require('path');
 var webpack = require('webpack');
-
+var ExtractTextPlugin = require("extract-text-webpack-plugin");
 module.exports = {
   devtool: 'source-map',
   entry: [
-    './src/index.jsx'
+    './src/index'
   ],
   output: {
     path: path.join(__dirname, 'dist'),
@@ -22,10 +22,16 @@ module.exports = {
       compressor: {
         warnings: false
       }
-    })
+    }),
+    new ExtractTextPlugin("bundle.css")
   ],
+  resolve: {
+    extensions: ['', '.json', '.js', '.jsx','.css']
+  },
   module: {
-    loaders: [{
+    loaders: [
+    { test: /\.css$/, loader:ExtractTextPlugin.extract( "style-loader","css-loader?sourceMap") },
+    {
       test: /\.jsx$/,
       loaders: ['babel'],
       include: path.join(__dirname, 'src')

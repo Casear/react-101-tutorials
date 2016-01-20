@@ -24,6 +24,7 @@
     "eslint-plugin-react": "^3.15.0",
     "eventsource-polyfill": "^0.9.6",
     "express": "^4.13.3",
+    "extract-text-webpack-plugin": "^1.0.1",
     "react": "^0.14.6",
     "rimraf": "^2.5.0",
     "style-loader": "^0.13.0",
@@ -32,6 +33,7 @@
     "webpack-hot-middleware": "^2.6.0"
   },
   "dependencies": {
+    "jquery": "^2.2.0",
     "react": "^0.14.6",
     "react-dom": "^0.14.6"
   }

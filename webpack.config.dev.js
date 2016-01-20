@@ -6,7 +6,7 @@ module.exports = {
   entry: [
     'eventsource-polyfill', // necessary for hot reloading with IE
     'webpack-hot-middleware/client',
-    './src/index.jsx'
+    './src/index'
   ],
   output: {
     path: path.join(__dirname, 'dist'),
@@ -14,12 +14,18 @@ module.exports = {
     publicPath: '/static/'
   },
   plugins: [
+    new webpack.ProvidePlugin({
+      'jQuery': 'jquery'
+    }),
     new webpack.HotModuleReplacementPlugin(),
     new webpack.NoErrorsPlugin()
   ],
+  resolve: {
+    extensions: ['', '.json', '.js', '.jsx','.css']
+  },
   module: {
     loaders: [
-    { test: /\.css$/, loader: "style-loader!css-loader" },
+    { test: /\.css$/, loader: "style-loader!css-loader?sourceMap" },
     {
       test: /\.jsx?/,
       loaders: ['babel'],
