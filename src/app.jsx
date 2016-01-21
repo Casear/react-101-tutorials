@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Thermometer from './components/Thermometer';
+import Menu from './components/Menu';
 export class App extends Component {
   constructor(props){
     super(props);
@@ -12,18 +13,10 @@ export class App extends Component {
 
   }
   render() {
-    console.dir(this.state)
+    
     return (
       <div className='ui text container'>
-        <Thermometer 
-            min={this.state.temp_min}
-            max={this.state.temp_max}
-            width={20}
-            height={300}
-            backgroundColor={'blue'}
-            fillColor={'green'}
-            current={this.state.temp}
-        />
+        <Menu />
       </div>
     );
   }
