@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Hello React</title>
+    <script src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
+    <script src="https://fb.me/react-0.14.6.js"></script>
+    <script src="https://fb.me/react-dom-0.14.6.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.23/browser.min.js"></script>
+</head>
+
+<body>
+    <div id="example0"></div>
+    <div id="example1"></div>
+    <div id="example2"></div>
+    <div id="example3"></div>
+    <div id="example4"></div>
+    <div id="example5"></div>
+    <div id="example6"></div>
+    <div id="example7"></div>
+    <div id="example8"></div>
+    <script type="text/javascript">
+      setInterval(function(){
+        for(var i=0;i<9;i++)
+          $('#example'+i).html("Hello,<input type='text' placeholder='Your name here' />! It is "+(new Date()).toTimeString())
+
+      }, 500)
+    </script>
+</body>
+
+</html>
